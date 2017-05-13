@@ -1,0 +1,306 @@
+# -*- coding: utf-8 -*-
+
+# Copyright (c) 2014 - 2017 Detlev Offenbach <detlev@die-offenbachs.de>
+#
+
+"""
+Module implementing the virtualenv execution dialog.
+"""
+
+from __future__ import unicode_literals
+try:
+    str = unicode
+except NameError:
+    pass
+
+import sys
+import os
+
+from PyQt5.QtCore import QProcess, QTimer, QUrl
+from PyQt5.QtGui import QDesktopServices
+from PyQt5.QtWidgets import QDialog, QDialogButtonBox
+
+from .Ui_VirtualenvExecDialog import Ui_VirtualenvExecDialog
+
+import Preferences
+from Globals import isWindowsPlatform
+
+
+class VirtualenvExecDialog(QDialog, Ui_VirtualenvExecDialog):
+    """
+    Class implementing the virtualenv execution dialog.
+    
+    This class starts a QProcess and displays a dialog that
+    shows the output of the virtualenv or pyvenv process.
+    """
+    def __init__(self, pyvenv, targetDir, openTarget, createLog, createScript,
+                 interpreter, parent=None):
+        """
+        Constructor
+        
+        @param pyvenv flag indicating the use of 'pyvenv' (boolean)
+        @param targetDir name of the virtualenv directory (string)
+        @param openTarget flag indicating to open the virtualenv directory
+            in a file manager (boolean)
+        @param createLog flag indicating to create a log file of the
+            creation process (boolean)
+        @param createScript flag indicating to create a script to recreate
+            the virtual environment (boolean)
+        @param interpreter name of the python interpreter to use (string)
+        @param parent reference to the parent widget (QWidget)
+        """
+        super(VirtualenvExecDialog, self).__init__(parent)
+        self.setupUi(self)
+        
+        self.buttonBox.button(QDialogButtonBox.Close).setEnabled(False)
+        self.buttonBox.button(QDialogButtonBox.Cancel).setDefault(True)
+        
+        self.__pyvenv = pyvenv
+        self.__targetDir = targetDir
+        self.__openTarget = openTarget
+        self.__createLog = createLog
+        self.__createScript = createScript
+        
+        self.process = None
+        self.__cmd = ""
+        
+        if pyvenv:
+            self.__calls = []
+            if interpreter:
+                self.__calls.append((interpreter, ["-m", "venv"]))
+            self.__calls.extend([
+                (sys.executable.replace("w.exe", ".exe"),
+                 ["-m", "venv"]),
+                ("python3", ["-m", "venv"]),
+                ("python", ["-m", "venv"]),
+            ])
+        else:
+            self.__calls = [
+                (sys.executable.replace("w.exe", ".exe"),
+                 ["-m", "virtualenv"]),
+                ("virtualenv", []),
+            ]
+        self.__callIndex = 0
+        self.__callArgs = []
+    
+    def start(self, arguments):
+        """
+        Public slot to start the virtualenv command.
+        
+        @param arguments commandline arguments for virtualenv/pyvenv program
+            (list of strings)
+        """
+        if self.__callIndex == 0:
+            # first attempt, add a given python interpreter and do
+            # some other setup
+            self.errorGroup.hide()
+            self.contents.clear()
+            self.errors.clear()
+            
+            self.process = QProcess()
+            self.process.readyReadStandardOutput.connect(self.__readStdout)
+            self.process.readyReadStandardError.connect(self.__readStderr)
+            self.process.finished.connect(self.__finish)
+            
+            if not self.__pyvenv:
+                for arg in arguments:
+                    if arg.startswith("--python="):
+                        prog = arg.replace("--python=", "")
+                        self.__calls.insert(
+                            0, (prog, ["-m", "virtualenv"]))
+                        break
+            self.__callArgs = arguments
+        
+        prog, args = self.__calls[self.__callIndex]
+        args.extend(self.__callArgs)
+        self.__cmd = "{0} {1}".format(prog, " ".join(args))
+        self.__logOutput(self.tr("Executing: {0}\n").format(
+            self.__cmd))
+        self.process.start(prog, args)
+        procStarted = self.process.waitForStarted(5000)
+        if not procStarted:
+            self.__logOutput(self.tr("Failed\n\n"))
+            self.__nextAttempt()
+    
+    def on_buttonBox_clicked(self, button):
+        """
+        Private slot called by a button of the button box clicked.
+        
+        @param button button that was clicked (QAbstractButton)
+        """
+        if button == self.buttonBox.button(QDialogButtonBox.Close):
+            self.accept()
+        elif button == self.buttonBox.button(QDialogButtonBox.Cancel):
+            self.__finish()
+    
+    def __finish(self, exitCode, exitStatus, giveUp=False):
+        """
+        Private slot called when the process finished.
+        
+        It is called when the process finished or
+        the user pressed the button.
+        
+        @param exitCode exit code of the process (integer)
+        @param exitStatus exit status of the process (QProcess.ExitStatus)
+        @keyparam giveUp flag indicating to not start another attempt (boolean)
+        """
+        if self.process is not None and \
+           self.process.state() != QProcess.NotRunning:
+            self.process.terminate()
+            QTimer.singleShot(2000, self.process.kill)
+            self.process.waitForFinished(3000)
+        
+        self.buttonBox.button(QDialogButtonBox.Close).setEnabled(True)
+        self.buttonBox.button(QDialogButtonBox.Cancel).setEnabled(False)
+        self.buttonBox.button(QDialogButtonBox.Close).setDefault(True)
+        
+        if not giveUp:
+            if exitCode != 0:
+                self.__logOutput(self.tr("Failed\n\n"))
+                if len(self.errors.toPlainText().splitlines()) == 1:
+                    self.errors.clear()
+                    self.errorGroup.hide()
+                    self.__nextAttempt()
+                    return
+            
+            self.process = None
+            
+            if self.__pyvenv:
+                self.__logOutput(self.tr('\npyvenv finished.\n'))
+            else:
+                self.__logOutput(self.tr('\nvirtualenv finished.\n'))
+            
+            if os.path.exists(self.__targetDir):
+                if self.__createScript:
+                    self.__writeScriptFile()
+                
+                if self.__createLog:
+                    self.__writeLogFile()
+                
+                if self.__openTarget:
+                    QDesktopServices.openUrl(QUrl.fromLocalFile(
+                        self.__targetDir))
+    
+    def __nextAttempt(self):
+        """
+        Private method to start another attempt.
+        """
+        self.__callIndex += 1
+        if self.__callIndex < len(self.__calls):
+            self.start(self.__callArgs)
+        else:
+            if self.__pyvenv:
+                self.__logError(
+                    self.tr('No suitable pyvenv program could be'
+                            ' started.\n'))
+            else:
+                self.__logError(
+                    self.tr('No suitable virtualenv program could be'
+                            ' started.\n'))
+            self.__cmd = ""
+            self.__finish(0, 0, giveUp=True)
+    
+    def __readStdout(self):
+        """
+        Private slot to handle the readyReadStandardOutput signal.
+        
+        It reads the output of the process, formats it and inserts it into
+        the contents pane.
+        """
+        self.process.setReadChannel(QProcess.StandardOutput)
+        
+        while self.process.canReadLine():
+            s = str(self.process.readLine(),
+                    Preferences.getSystem("IOEncoding"),
+                    'replace')
+            self.__logOutput(s)
+    
+    def __readStderr(self):
+        """
+        Private slot to handle the readyReadStandardError signal.
+        
+        It reads the error output of the process and inserts it into the
+        error pane.
+        """
+        self.process.setReadChannel(QProcess.StandardError)
+        
+        while self.process.canReadLine():
+            s = str(self.process.readLine(),
+                    Preferences.getSystem("IOEncoding"),
+                    'replace')
+            self.__logError(s)
+    
+    def __logOutput(self, s):
+        """
+        Private method to log some output.
+        
+        @param s output sstring to log (string)
+        """
+        self.contents.insertPlainText(s)
+        self.contents.ensureCursorVisible()
+    
+    def __logError(self, s):
+        """
+        Private method to log an error.
+        
+        @param s error string to log (string)
+        """
+        self.errorGroup.show()
+        self.errors.insertPlainText(s)
+        self.errors.ensureCursorVisible()
+    
+    def __writeLogFile(self):
+        """
+        Private method to write a log file to the virtualenv directory.
+        """
+        outtxt = self.contents.toPlainText()
+        if self.__pyvenv:
+            logFile = os.path.join(self.__targetDir, "pyvenv.log")
+        else:
+            logFile = os.path.join(self.__targetDir, "virtualenv.log")
+        self.__logOutput(self.tr("\nWriting log file '{0}'.\n")
+                         .format(logFile))
+        
+        try:
+            f = open(logFile, "w", encoding="utf-8")
+            f.write(self.tr("Output:\n"))
+            f.write(outtxt)
+            errtxt = self.errors.toPlainText()
+            if errtxt:
+                f.write("\n")
+                f.write(self.tr("Errors:\n"))
+                f.write(errtxt)
+            f.close()
+        except (IOError, OSError) as err:
+            self.__logError(
+                self.tr("""The logfile '{0}' could not be written.\n"""
+                        """Reason: {1}\n""").format(logFile, str(err)))
+        self.__logOutput(self.tr("Done.\n"))
+    
+    def __writeScriptFile(self):
+        """
+        Private method to write a script file to the virtualenv directory.
+        """
+        if self.__pyvenv:
+            basename = "create_pyvenv"
+        else:
+            basename = "create_virtualenv"
+        if isWindowsPlatform():
+            script = os.path.join(self.__targetDir, basename + ".bat")
+            txt = self.__cmd
+        else:
+            script = os.path.join(self.__targetDir, basename + ".sh")
+            txt = "#!/usr/bin/env sh\n\n" + self.__cmd
+        
+        self.__logOutput(self.tr("\nWriting script file '{0}'.\n")
+                         .format(script))
+        
+        try:
+            f = open(script, "w", encoding="utf-8")
+            f.write(txt)
+            f.close()
+        except (IOError, OSError) as err:
+            self.__logError(
+                self.tr("""The script file '{0}' could not be written.\n"""
+                        """Reason: {1}\n""").format(script, str(err)))
+        self.__logOutput(self.tr("Done.\n"))

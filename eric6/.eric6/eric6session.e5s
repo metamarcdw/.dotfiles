@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Session SYSTEM "Session-5.0.dtd">
+<!-- This file was generated automatically, do not edit. -->
+<!-- Saved: 2017-05-10, 13:36:42 -->
+<Session version="5.0">
+  <Project>/home/cypher/Documents/aspen/aspen.e4p</Project>
+  <Filenames>
+    <Filename cline="347" cindex="0" folds="" zoom="0">/home/cypher/Documents/aspen/aspendb/models.py</Filename>
+  </Filenames>
+  <ActiveWindow cline="347" cindex="0">/home/cypher/Documents/aspen/aspendb/models.py</ActiveWindow>
+  <Breakpoints/>
+  <Watchexpressions/>
+  <DebugInfo>
+    <CommandLine></CommandLine>
+    <WorkingDirectory></WorkingDirectory>
+    <Environment></Environment>
+    <ReportExceptions value="True"/>
+    <Exceptions/>
+    <IgnoredExceptions/>
+    <AutoClearShell value="True"/>
+    <TracePython value="False"/>
+    <AutoContinue value="True"/>
+    <CovexcPattern/>
+  </DebugInfo>
+  <Bookmarks/>
+</Session>

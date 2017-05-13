@@ -1,0 +1,5 @@
+[user]
+	name = Marc Wood
+	email = metamarcdw@gmail.com
+[core]
+	editor = nano -w

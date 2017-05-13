@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Debug Howto</title>
+</head>
+
+<body>
+    <h2>How to debug Django projects</h2>
+    <p>This little howto gives step-by-step instructions for debugging a Django
+    project with the eric4 debugger.</p>
+    <ol>
+        <li>Make the manage.py script of the Django project the eric4 project's
+            main script (see the Project Properties dialog).</li>
+        <li>Set a breakpoint at the position you want to start debugging.</li>
+        <li>Start the debugger using "runserver --noreload"</li>
+        <li>Watch the Shell window for any output of the Django development server.</li>
+        <li>Load the URL in question in a web browser.</li>
+        <li>The debugger should stop at the breakpoint.</li>
+        <li>Step through your scripts as needed.</li>
+        <li>When done, stop the Django server by selecting "Reset" or "Reset and Clear"
+            from the Shell window context menu. Ctrl-C will not work here.</li>
+    </ol>
+    <p><strong>Note:</strong> If the same URL is requested several times, it may be 
+    neccessary to restart the Django server in between the requests.</p>
+</body>
+</html>

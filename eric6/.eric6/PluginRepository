@@ -1,0 +1,577 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Plugins version="4.1" >
+  
+  <Plugin status="stable" >
+    <Name>API Files</Name>
+    <Short>API files for Auto-Completion and Calltips.</Short>
+    <Description>
+        This plug-in provides API files for Auto-Completion and Calltips.
+        Some distribution packages seem to be missing them.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginApis.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de></Author>
+    <Version>2.0.1</Version>
+    <Filename>PluginApis-2_0_1.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Assistant, Eric6</Name>
+    <Short>Alternative code completion provider.</Short>
+    <Description>
+        This plug-in provides an alternative code completion
+        and calltips provider. The information is taken from
+        QScintilla API files, the current document and/or from
+        the APIs of the current project. It adjusts automatically
+        to changes of the project.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginAssistantEric.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de></Author>
+    <Version>3.2.3</Version>
+    <Filename>PluginAssistantEric-3_2_3.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Checkers, PyLint</Name>
+    <Short>Interface to the pylint checker program.</Short>
+    <Description>
+        This plug-in implements the PyLint dialogs.
+        PyLint is used to check Python source files according to various rules.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginPyLint.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de></Author>
+    <Version>6.1.6</Version>
+    <Filename>PluginPyLint-6_1_6.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Checkers, Vulture</Name>
+    <Short>Checker for unused code.</Short>
+    <Description>
+        This plug-in checks a Python project for unused code. The checker
+        is using an extended variant of the vulture library.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginVulture.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de></Author>
+    <Version>1.0.5</Version>
+    <Filename>PluginVulture-1_0_5.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Completions, Jedi</Name>
+    <Short>Alternative code completion provider using the Jedi library.</Short>
+    <Description>
+        This plug-in provides an alternative code completion
+        and calltips provider. It includes the capability to jump to the place
+        a name is defined through a configurable mouse click combination. The
+        information is determined by the Jedi library included in the plug-in.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginCompletionJedi.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de></Author>
+    <Version>1.1.0</Version>
+    <Filename>PluginCompletionJedi-1_1_0.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Metrics, Radon</Name>
+    <Short>Various code metrics using the radon package.</Short>
+    <Description>
+        This plug-in implements dialogs to show various code metrics. These
+        are determined using the radon code metrics package. 'Raw code
+        metrics', 'Maintainability Index' and 'McCabe Complexity' can be
+        requested through different dialogs for one file or the whole
+        project.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginMetricsRadon.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de></Author>
+    <Version>1.0.5</Version>
+    <Filename>PluginMetricsRadon-1_0_5.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Packagers, CxFreeze</Name>
+    <Short>Interface to the cxfreeze packaging program.</Short>
+    <Description>
+        This plug-in implements the CxFreeze dialogs.
+        CxFreeze is used to generate a distribution package.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginCxFreeze.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de></Author>
+    <Version>6.0.7</Version>
+    <Filename>PluginCxFreeze-6_0_7.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Project, Django</Name>
+    <Short>Basic support for Django projects.</Short>
+    <Description>
+        This plug-in implements support for Django projects. It includes
+        API files for the various Django versions and a Django menu offering
+        various Django related actions from within eric6.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginProjectDjango.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>5.0.5</Version>
+    <Filename>PluginProjectDjango-5_0_5.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Project, Django Tags Menu</Name>
+    <Short>A tags menu for Django projects.</Short>
+    <Description>
+        This plug-in adds a menu to the Django menu to select various
+        tags and filters.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginProjectDjangoTagsMenu.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.0.3</Version>
+    <Filename>PluginProjectDjangoTagsMenu-2_0_3.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Project, Kivy</Name>
+    <Short>Basic support for Kivy projects.</Short>
+    <Description>
+        This plug-in implements support for Kivy projects. It includes
+        a highlighter for Kivy files and an API file for the Kivy framework.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginProjectKivy.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.0.3</Version>
+    <Filename>PluginProjectKivy-2_0_3.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Project, Pyramid</Name>
+    <Short>Basic support for Pyramid projects.</Short>
+    <Description>
+        This plug-in implements support for Pyramid projects. It includes
+        API files for the various Pyramid parts and a Pyramid menu offering
+        various Pyramid related actions from within eric6.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginProjectPyramid.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.3.5</Version>
+    <Filename>PluginProjectPyramid-2_3_5.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Project, Web</Name>
+    <Short>Support for Web projects and web related tools.</Short>
+    <Description>
+        This plug-in provides support for ordinary web projects and some web
+        related tools. It requires BeautifulSoup4 for some of its functionality.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginProjectWeb.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.1.4</Version>
+    <Filename>PluginProjectWeb-1_1_4.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Refactoring, Rope</Name>
+    <Short>Refactoring using the Rope refactoring library.</Short>
+    <Description>
+        This plug-in implements refactoring and autocompletion 
+        functionality using the Rope refactoring library. It includes
+        the capability to jump to the place a name is defined through
+        a configurable mouse click combination.
+        
+        Note: rope will be enabled for projects of the interpreted variant
+        eric is executed with.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginRefactoringRope.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de></Author>
+    <Version>4.3.0</Version>
+    <Filename>PluginRefactoringRope-4_3_0.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Time Tracker</Name>
+    <Short>Time Tracker to keep track of the project time.</Short>
+    <Description>
+        This plug-in implements a time tracker to keep track
+        of the time used for a project. The time can be subdivided into tasks.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginTimeTracker.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.0.6</Version>
+    <Filename>PluginTimeTracker-2_0_6.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Tool, Camel Case Handling</Name>
+    <Short>Tool to split, merge or convert camel case text.</Short>
+    <Description>
+        This plug-in implements a tool to split, merge or convert
+        camel case text. It works with the text of the current
+        editor. The menu entries will only be selectable, if the
+        current editor has some selected text.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginSplitMergeCamelCase.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.1.1</Version>
+    <Filename>PluginSplitMergeCamelCase-2_1_1.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Tool, Color String</Name>
+    <Short>Tool to insert a color as string.</Short>
+    <Description>
+        This plug-in implements a tool to select a color via a color selection
+        dialog and insert it as a hex string at the current cursor position.
+        Selected text is used to initialize the dialog and is replaced with the
+        new color.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginColorString.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.2.3</Version>
+    <Filename>PluginColorString-2_2_3.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Tool, Hash Generation</Name>
+    <Short>Tool to generate a hash for a selectable file or directory.</Short>
+    <Description>
+        This plug-in generates a hash for a selectable file or directory. The
+        hash string will be inserted at the cursor position of the current
+        editor.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginToolGenerateHash.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.1.2</Version>
+    <Filename>PluginToolGenerateHash-2_1_2.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Tool, Invert Hex Color</Name>
+    <Short>Tool to invert the selected hex color string.</Short>
+    <Description>
+        This plug-in implements a tool to invert the selected hex color
+        code of the current editor.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginInvertHexColor.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.1.3</Version>
+    <Filename>PluginInvertHexColor-2_1_3.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>pip Interface</Name>
+    <Short>A simple GUI for the pip command.</Short>
+    <Description>
+        This plug-in implements a simple GUI for the pip command. It lets
+        you list the installed packages, search PyPI, install, uninstall
+        and upgrade packages and create requirements files.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginToolPip.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de></Author>
+    <Version>1.4.5</Version>
+    <Filename>PluginToolPip-1_4_5.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Tool, Print Remover</Name>
+    <Short>Tool to remove print() like debug statements.</Short>
+    <Description>
+        This plug-in implements a tool to remove lines starting with
+        a configurable string. This is mostly used to remove print()
+        like debug statements. The match is done after stripping all
+        whitespace from the beginning of a line. Lines containing the
+        string '__NO_REMOVE__' are preserved.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginPrintRemover.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.1.2</Version>
+    <Filename>PluginPrintRemover-2_1_2.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Tool, PySide to PyQt Converter</Name>
+    <Short>Tool to convert PySide files to PyQt and vice versa.</Short>
+    <Description>
+        This plug-in implements a tool to convert a PySide file
+        to PyQt4 or PyQt5 and vice versa. It works with the text of the
+        current editor.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginPySide2PyQt.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.1.1</Version>
+    <Filename>PluginPySide2PyQt-2_1_1.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Tool, Selection Encloser</Name>
+    <Short>Tool to enclose the selection with a string.</Short>
+    <Description>
+        This plug-in implements a tool to enclose the selection of
+        the current editor with a string. The enclosing string is
+        selectable via a configurable menu hierarchy.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginSelectionEncloser.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.1.4</Version>
+    <Filename>PluginSelectionEncloser-2_1_4.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Translator</Name>
+    <Short>Translation utility using Google translator</Short>
+    <Description>
+        This plug-in implements a utility to translate text using various translators.
+        Supported translators are: Glosbe, Google V.1 and V.2, Microsoft, MyMemory,
+        PROMT and Yandex.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginTranslator.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.1.3</Version>
+    <Filename>PluginTranslator-2_1_3.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>VCS, Git</Name>
+    <Short>Git version control interface</Short>
+    <Description>
+        This plug-in implements an interface to the Git version control system.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginVcsGit.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.3.2</Version>
+    <Filename>PluginVcsGit-1_3_2.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Virtualenv Configurator</Name>
+    <Short>Configurator for Python Virtual Environments.</Short>
+    <Description>
+        This plugin implements a configuration interface to create Python
+        virtual environments using 'virtualenv' or 'pyvenv'.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginWizardVirtualenv.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.2.7</Version>
+    <Filename>PluginWizardVirtualenv-2_2_7.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Wizard, .desktop</Name>
+    <Short>Wizard for the creation of a .desktop file.</Short>
+    <Description>
+        This plugin implements a wizard to generate code for a .desktop file.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginWizardDotDesktop.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.0.3</Version>
+    <Filename>PluginWizardDotDesktop-2_0_3.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Wizard, Base64 Data URI Encoder</Name>
+    <Short>Wizard for the creation of base64 encoded data URI code.</Short>
+    <Description>
+        This plugin implements a wizard to generate code for base64 encoded
+        Data URIs.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginWizardDataUriEncoder.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.0.3</Version>
+    <Filename>PluginWizardDataUriEncoder-2_0_3.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Wizard, eric Plug-in</Name>
+    <Short>Wizard for the creation of an eric plug-in main script file.</Short>
+    <Description>
+        This plug-in implements a wizard to generate code for an eric
+        plug-in main script file.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginWizardEricPlugin.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.0.4</Version>
+    <Filename>PluginWizardEricPlugin-2_0_4.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Wizard, setup.py</Name>
+    <Short>Wizard for the creation of a setup.py file.</Short>
+    <Description>
+        This plugin implements a wizard to generate code for a setup.py file.
+        It supports the 'distutils' and 'setuptools' variants.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginWizardSetup.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>2.0.4</Version>
+    <Filename>PluginWizardSetup-2_0_4.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Documentation Set, Python 2.7.13</Name>
+    <Short>Plug-in providing the Python 2.7.13 documentation in QtHelp format.</Short>
+    <Description>
+        This plug-in provides the Python 2.7.13 documentation in QtHelp format. The
+        documents can be registered in the eric help or web browser or Qt Assistant.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginDocumentationSets_Python27.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.0.0.1</Version>
+    <Filename>PluginDocumentationSets_Python27-1_0_0_1.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Documentation Set, Python 3.4.5</Name>
+    <Short>Plug-in providing the Python 3.4.5 documentation in QtHelp format.</Short>
+    <Description>
+        This plug-in provides the Python 3.4.5 documentation in QtHelp format. The
+        documents can be registered in the eric help or web browser or Qt Assistant.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginDocumentationSets_Python34.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.0.0</Version>
+    <Filename>PluginDocumentationSets_Python34-1_0_0.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Documentation Set, Python 3.5.2</Name>
+    <Short>Plug-in providing the Python 3.5.2 documentation in QtHelp format.</Short>
+    <Description>
+        This plug-in provides the Python 3.5.2 documentation in QtHelp format. The
+        documents can be registered in the eric help or web browser or Qt Assistant.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginDocumentationSets_Python35.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.0.0</Version>
+    <Filename>PluginDocumentationSets_Python35-1_0_0.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Documentation Set, Python 3.6.0</Name>
+    <Short>Plug-in providing the Python 3.6.0 documentation in QtHelp format.</Short>
+    <Description>
+        This plug-in provides the Python 3.6.0 documentation in QtHelp format. The
+        documents can be registered in the eric help or web browser or Qt Assistant.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginDocumentationSets_Python36.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.0.0</Version>
+    <Filename>PluginDocumentationSets_Python36-1_0_0.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Documentation Set, PyQt 4.11</Name>
+    <Short>Plug-in providing the PyQt 4.11 documentation in QtHelp format.</Short>
+    <Description>
+        This plug-in provides the PyQt 4.11 documentation in QtHelp format. The
+        documents can be registered in the eric help or web browser or Qt Assistant.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginDocumentationSets_PyQt411.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.0.0</Version>
+    <Filename>PluginDocumentationSets_PyQt411-1_0_0.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Documentation Set, PyQt 4.12</Name>
+    <Short>Plug-in providing the PyQt 4.12 documentation in QtHelp format.</Short>
+    <Description>
+        This plug-in provides the PyQt 4.12 documentation in QtHelp format. The
+        documents can be registered in the eric help or web browser or Qt Assistant.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginDocumentationSets_PyQt412.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.0.0</Version>
+    <Filename>PluginDocumentationSets_PyQt412-1_0_0.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Documentation Set, PyQt 5.6</Name>
+    <Short>Plug-in providing the PyQt 5.6 documentation in QtHelp format.</Short>
+    <Description>
+        This plug-in provides the PyQt 5.6 documentation in QtHelp format. The
+        documents can be registered in the eric help or web browser or Qt Assistant.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginDocumentationSets_PyQt56.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.0.0</Version>
+    <Filename>PluginDocumentationSets_PyQt56-1_0_0.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Documentation Set, PyQt 5.7.1</Name>
+    <Short>Plug-in providing the PyQt 5.7 documentation in QtHelp format.</Short>
+    <Description>
+        This plug-in provides the PyQt 5.7 documentation in QtHelp format. The
+        documents can be registered in the eric help or web browser or Qt Assistant.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginDocumentationSets_PyQt57.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.0.0.1</Version>
+    <Filename>PluginDocumentationSets_PyQt57-1_0_0_1.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Documentation Set, Qt 4.8</Name>
+    <Short>Plug-in providing the Qt 4.8 documentation in QtHelp format.</Short>
+    <Description>
+        This plug-in provides the Qt 4.8 documentation in QtHelp format. The
+        documents can be registered in the eric help or web browser or Qt Assistant.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginDocumentationSets_Qt48.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.0.0</Version>
+    <Filename>PluginDocumentationSets_Qt48-1_0_0.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Documentation Set, Qt 5.5.1</Name>
+    <Short>Plug-in providing the Qt 5.5 documentation in QtHelp format.</Short>
+    <Description>
+        This plug-in provides the Qt 5.5 documentation in QtHelp format. The
+        documents can be registered in the eric help or web browser or Qt Assistant.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginDocumentationSets_Qt55.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.0.0</Version>
+    <Filename>PluginDocumentationSets_Qt55-1_0_0.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Documentation Set, Qt 5.6.2</Name>
+    <Short>Plug-in providing the Qt 5.6 documentation in QtHelp format.</Short>
+    <Description>
+        This plug-in provides the Qt 5.6 documentation in QtHelp format. The
+        documents can be registered in the eric help or web browser or Qt Assistant.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginDocumentationSets_Qt56.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.0.0</Version>
+    <Filename>PluginDocumentationSets_Qt56-1_0_0.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Documentation Set, Qt 5.7.1</Name>
+    <Short>Plug-in providing the Qt 5.7 documentation in QtHelp format.</Short>
+    <Description>
+        This plug-in provides the Qt 5.7 documentation in QtHelp format. The
+        documents can be registered in the eric help or web browser or Qt Assistant.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginDocumentationSets_Qt57.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.0.0.1</Version>
+    <Filename>PluginDocumentationSets_Qt57-1_0_0_1.zip</Filename>
+  </Plugin>
+  
+  <Plugin status="stable" >
+    <Name>Documentation Set, Qt 5.8.0</Name>
+    <Short>Plug-in providing the Qt 5.8 documentation in QtHelp format.</Short>
+    <Description>
+        This plug-in provides the Qt 5.8 documentation in QtHelp format. The
+        documents can be registered in the eric help or web browser or Qt Assistant.
+    </Description>
+    <Url>https://eric-ide.python-projects.org/plugins6/stable/PluginDocumentationSets_Qt58.zip</Url>
+    <Author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</Author>
+    <Version>1.0.0</Version>
+    <Filename>PluginDocumentationSets_Qt58-1_0_0.zip</Filename>
+  </Plugin>
+  
+  <RepositoryUrl>https://eric-ide.python-projects.org/plugins6/repository.xml</RepositoryUrl>
+  
+</Plugins>
