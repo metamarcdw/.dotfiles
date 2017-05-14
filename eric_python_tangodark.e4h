@@ -4,7 +4,7 @@
 <!-- Saved: 2010-11-24, 18:08:12 -->
 <!-- Author:  -->
 <HighlightingStyles version="4.3">
-  <Lexer name="Python3">
+  <Lexer name="JavaScript">
     <Style style="0" color="#eeeeee" paper="#2e3436" font="Liberation Mono,10,-1,5,50,0,0,0,0,0" eolfill="1">Default</Style>
     <Style style="1" color="#878787" paper="#2e3436" font="Liberation Mono,10,-1,5,50,0,0,0,0,0" eolfill="0">Comment</Style>
     <Style style="2" color="#8ae234" paper="#2e3436" font="Liberation Mono,10,-1,5,50,0,0,0,0,0" eolfill="0">Number</Style>
